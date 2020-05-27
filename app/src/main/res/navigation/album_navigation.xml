@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/album_navigation"
+    app:startDestination="@id/albumFragment"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/albumFragment"
+        android:name="com.matinfard.musicmanagement.features.album.view.myalbum.MyAlbumFragment"
+        android:label="AlbumFragment" >
+        <action
+            android:id="@+id/action_albumFragment_to_searchArtistFragment"
+            app:destination="@id/searchArtistFragment" />
+        <action
+            android:id="@+id/action_albumFragment_to_topAlbumDetailFragment"
+            app:destination="@id/topAlbumDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchArtistFragment"
+        android:name="com.matinfard.musicmanagement.features.search.view.SearchArtistFragment"
+        android:label="SearchArtistFragment" >
+        <action
+            android:id="@+id/action_searchArtistFragment_to_topAlbumFragment"
+            app:destination="@id/topAlbumFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/topAlbumFragment"
+        android:name="com.matinfard.musicmanagement.features.album.view.topalbum.TopAlbumFragment"
+        android:label="TopAlbumFragment" >
+        <action
+            android:id="@+id/action_topAlbumFragment_to_topAlbumDetailFragment"
+            app:destination="@id/topAlbumDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/topAlbumDetailFragment"
+        android:name="com.matinfard.musicmanagement.features.album.view.albumdetail.AlbumDetailFragment"
+        android:label="TopAlbumDetailFragment" />
+</navigation>

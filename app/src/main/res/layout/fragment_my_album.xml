@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <include
+        android:id="@+id/albumHeaderLayout"
+        layout="@layout/album_header_layout" />
+
+    <TextView
+        android:id="@+id/myAlbumHeaderTV"
+        style="@style/style_text"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginStart="13dp"
+        android:text="@string/my_album"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/backgroundV"
+        tools:ignore="NotSibling" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/myAlbumRV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="85dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Music Management</string>
+    <string name="artist_name">artistName</string>
+    <string name="top_album_name">topAlbumName</string>
+    <string name="view_mode">viewMode</string>
+    <string name="delete">Delete</string>
+    <string name="save">Save</string>
+    <string name="delete_successful">Album deleted successfully</string>
+    <string name="save_successful">Album saved successfully</string>
+    <string name="delete_failed">Album delete failed</string>
+    <string name="save_failed">Album save failed</string>
+    <string name="failure_no_network_connection">No network connection</string>
+    <string name="failure_server_error">Server error</string>
+    <string name="failure_unknown_error">Unknown error</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="empty_search_value">Search box is empty!!</string>
+    <string name="shared_transition_name">sharedTransition</string>
+    <string name="search">Search</string>
+    <string name="type_artist_name">Type artist name...</string>
+    <string name="artist_name_">Artist name...</string>
+    <string name="no_result">No result...</string>
+    <string name="top_albums">Top Albums</string>
+    <string name="my_album">My album</string>
+    <string name="album_name">Album Name</string>
+</resources>

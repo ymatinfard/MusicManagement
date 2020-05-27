@@ -1,0 +1,123 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+
+    def config = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion config["compile_sdk"]
+    buildToolsVersion config["build_tools"]
+
+    defaultConfig {
+        applicationId config["application_id"]
+        minSdkVersion config["min_sdk"]
+        targetSdkVersion config["target_sdk"]
+        versionCode config["version_code"]
+        versionName config["version_name"]
+        testInstrumentationRunner config["test_runner"]
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            testCoverageEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguardTest-rules.pro'
+        }
+
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguardTest-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    packagingOptions {
+        exclude 'META-INF/atomicfu.kotlin_module'
+    }
+    
+    testOptions.unitTests {
+        includeAndroidResources = true
+    }
+
+}
+
+dependencies {
+
+    def applicationDependencies = rootProject.ext.mainApplication
+    def unitTestDependencies = rootProject.ext.unitTesting
+    def acceptanceTestDependencies = rootProject.ext.acceptanceTesting
+    def developmentDependencies = rootProject.ext.development
+
+    //Application dependencies
+    implementation applicationDependencies.kotlin
+    implementation applicationDependencies.kotlinCoroutinesAndroid
+    implementation applicationDependencies.appCompat
+    implementation applicationDependencies.recyclerView
+    implementation applicationDependencies.constraintLayout
+    implementation applicationDependencies.androidxCore
+    implementation applicationDependencies.glide
+    implementation applicationDependencies.retrofit
+    implementation applicationDependencies.retrofitGson
+    implementation applicationDependencies.koinCore
+    implementation applicationDependencies.koinExt
+    implementation applicationDependencies.koinScope
+    implementation applicationDependencies.koinViewmodel
+    implementation applicationDependencies.room
+    implementation applicationDependencies.roomKtx
+    implementation applicationDependencies.okhttpLoggingInterceptor
+    implementation applicationDependencies.navigationFragment
+    implementation applicationDependencies.navigationFragmentKtx
+    implementation applicationDependencies.navigationUIKtx
+    implementation applicationDependencies.navigationUI
+    implementation applicationDependencies.lifeCycleExt
+    implementation applicationDependencies.lifeCycleViewmodel
+    implementation applicationDependencies.lifeCycleLiveData
+    implementation applicationDependencies.lifecycleRuntime
+    implementation applicationDependencies.timber
+    kapt applicationDependencies.glideAnnotationProcessor
+    kapt applicationDependencies.roomCompiler
+
+    //Unit tests dependencies
+    testImplementation unitTestDependencies.androidxCoreKtx
+    testImplementation unitTestDependencies.androidxTestExt
+    testImplementation unitTestDependencies.archTest
+    testImplementation unitTestDependencies.robolectric
+    testImplementation unitTestDependencies.mockitoKotlin
+    testImplementation unitTestDependencies.kluent
+    testImplementation unitTestDependencies.junit
+    testImplementation unitTestDependencies.koinTest
+
+    //Acceptance tests dependencies
+    androidTestImplementation acceptanceTestDependencies.roomTest
+    androidTestImplementation acceptanceTestDependencies.arcCoreTesting
+    androidTestImplementation acceptanceTestDependencies.expressoCore
+    androidTestImplementation acceptanceTestDependencies.robolectricAnnotation
+    androidTestImplementation acceptanceTestDependencies.idlingResource
+    androidTestImplementation acceptanceTestDependencies.androidxTestExt
+    androidTestImplementation acceptanceTestDependencies.koinTest
+    androidTestImplementation acceptanceTestDependencies.kluentAndroid
+    androidTestImplementation acceptanceTestDependencies.mockitoAndroid
+    androidTestImplementation acceptanceTestDependencies.robolectric
+
+    debugImplementation acceptanceTestDependencies.coreKtx
+    debugImplementation acceptanceTestDependencies.testRule
+    debugImplementation acceptanceTestDependencies.fragmentTest
+
+    //Development dependencies
+    debugImplementation developmentDependencies.leakCanary
+    releaseImplementation developmentDependencies.leakCanaryNoop
+    testImplementation developmentDependencies.leakCanaryNoop
+}

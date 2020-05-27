@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/backgroundV"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="@color/colorHeader"
+        app:layout_constraintBottom_toBottomOf="@id/artistSearchET"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/backButtonIV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintBottom_toBottomOf="@id/artistSearchET"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/artistSearchET" />
+
+    <ImageView
+        android:id="@+id/searchIconSmallIV"
+        android:layout_width="17dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/ic_search"
+        app:layout_constraintBottom_toBottomOf="@id/artistSearchET"
+        app:layout_constraintStart_toEndOf="@id/backButtonIV"
+        app:layout_constraintTop_toTopOf="@id/artistSearchET" />
+
+    <EditText
+        android:id="@+id/artistSearchET"
+        style="@style/style_text"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/transparent"
+        android:gravity="center|start"
+        android:hint="@string/type_artist_name"
+        android:maxLength="25"
+        android:paddingStart="3dp"
+        android:textColorHint="@color/colorText"
+        app:layout_constraintStart_toEndOf="@id/searchIconSmallIV"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/searchButtonIV"
+        style="@style/style_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:padding="5dp"
+        android:text="@string/search"
+        android:textSize="15sp"
+        android:transitionName="@string/shared_transition_name"
+        app:layout_constraintBottom_toBottomOf="@id/artistSearchET"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/artistSearchET" />
+
+</merge>
